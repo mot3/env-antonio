@@ -78,18 +78,26 @@ def register(request):
 # authenticated to edit their profile.
 def edit(request):
     if request.method == 'POST':
-        user_form = UserEditForm(instance=request.user, data=request.POST)
+
+        # Return a user with post information
+        user_form = UserEditForm(
+            instance=request.user, data=request.POST)
         profile_form = ProfileEditForm(
             instance=request.user.profile, data=request.POST, files=request.FILES)
+
+        # if those forms that now a model is valid
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+
+            # Use default message option on django
             messages.success(request, 'Profile updated '
                              'successfully')
         else:
-            messages.error(request,'Error updating your profile')
+            messages.error(request, 'Error updating your profile')
 
     else:
+        # Fill fields with that 2 model from user and user.profile
         user_form = UserEditForm(instance=request.user)
         profile_form = ProfileEditForm(instance=request.user.profile)
 

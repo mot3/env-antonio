@@ -24,7 +24,7 @@ urlpatterns = [
     path('account/', include('account.urls')),
 
     # Include authentication backends for Facebook, Twitter, and Google.
-    path('social-auth/', include('social_django.urls', namespace='social')),
+    # path('social-auth/', include('social_django.urls', namespace='social')),
 ]
 
 # In this way, the Django development server will be in charge of serving the media files during development
