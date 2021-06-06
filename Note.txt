@@ -1,0 +1,14 @@
+In order to keep your code generic,
+use the get_user_model()method to retrieve the user model 
+and the AUTH_USER_MODELsetting to refer to it when defining a model's relationship with the user model,
+instead of referring to the auth user model directly
+
+Several social services will not allow redirecting users to 127.0.0.1 or localhostafter 
+a successful authentication; they expect a domain name. In order to make socialauthentication work, 
+you will need a domain. To fix this on Linux or macOS, 
+edit your /etc/hosts file and add the following line to it:127.0.0.1 mysite.com
+
+Some of the social authentication methods you are going to use require an HTTPS connection.
+The Transport Layer Security (TLS) protocol is the standard for serving websites through a secure connection.
+The TLS predecessor is the Secure Sockets Layer (SSL). 
+for use https in dev mode follow page 133(158) of antonio book  
